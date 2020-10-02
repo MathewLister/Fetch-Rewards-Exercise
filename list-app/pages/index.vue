@@ -28,7 +28,28 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    getData() {
+      // this.$axios
+      //   .get("https://fetch-hiring.s3.amazonaws.com/hiring.json")
+      //   .then(result => console.log(result))
+      //   .catch(e => console.log(e));
+
+      this.$axios.get("api/hiring.json").then(
+        response => {
+          console.log(response.data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  },
+  mounted() {
+    this.getData();
+  }
+};
 </script>
 
 <style>
@@ -42,16 +63,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
