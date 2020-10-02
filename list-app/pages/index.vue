@@ -1,44 +1,50 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        list-app
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <h1>Fetch Rewards Exercise</h1>
+    <vue-good-table
+      :columns="columns"
+      :rows="rows"
+      :line-numbers="true"
+      theme="black-rhino"
+    >
+      <div slot="emptystate">
+        <h1>Hmm....Something went wrong please try again</h1>
       </div>
-    </div>
+    </vue-good-table>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      columns: [
+        {
+          label: "ListID",
+          field: "listId",
+          sortable: false
+        },
+        {
+          label: "Name",
+          field: "name",
+          sortable: false
+        },
+        {
+          label: "ID",
+          field: "id",
+          sortable: false
+        }
+      ],
+      rows: []
+    };
+  },
   methods: {
     getData() {
-      // this.$axios
-      //   .get("https://fetch-hiring.s3.amazonaws.com/hiring.json")
-      //   .then(result => console.log(result))
-      //   .catch(e => console.log(e));
-
       this.$axios.get("api/hiring.json").then(
         response => {
           console.log(response.data);
+          this.rows = response.data;
+          console.log(this.data);
         },
         error => {
           console.log(error);

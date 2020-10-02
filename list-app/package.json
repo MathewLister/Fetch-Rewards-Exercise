@@ -12,7 +12,8 @@
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/proxy": "^2.0.1",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.5"
+    "nuxt": "^2.14.5",
+    "vue-good-table": "^2.21.0"
   },
   "devDependencies": {}
 }
