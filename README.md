@@ -1,6 +1,6 @@
 # Fetch-Rewards-Exercise
 ![Demo](Gifs/demo.gif)
-A VueJS with NuxtJS Single page application. 
+### A VueJS with NuxtJS Single page application. 
 
 ## Build Setup
 ```bash
