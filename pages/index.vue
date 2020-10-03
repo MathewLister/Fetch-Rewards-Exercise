@@ -13,22 +13,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, i) in groupOne" :key="item.id">
+          <tr v-for="item in groupOne" :key="item.id">
             <td>{{ item.listId }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.id }}</td>
           </tr>
-          <tr v-for="(item, i) in groupTwo" :key="item.id">
+          <tr v-for="item in groupTwo" :key="item.id">
             <td>{{ item.listId }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.id }}</td>
           </tr>
-          <tr v-for="(item, i) in groupThree" :key="item.id">
+          <tr v-for="item in groupThree" :key="item.id">
             <td>{{ item.listId }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.id }}</td>
           </tr>
-          <tr v-for="(item, i) in groupFour" :key="item.id">
+          <tr v-for="item in groupFour" :key="item.id">
             <td>{{ item.listId }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.id }}</td>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
@@ -49,17 +49,6 @@ export default {
       groupThree: "getGroupThree",
       groupFour: "getGroupFour"
     })
-  },
-  methods: {
-    ...mapActions({
-      fetch: "loadData"
-    }),
-    fetchData() {
-      this.fetch();
-    }
-  },
-  mounted() {
-    this.fetchData();
   }
 };
 </script>

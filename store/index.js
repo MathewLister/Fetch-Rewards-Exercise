@@ -7,7 +7,11 @@ export const state = () => ({
 });
 
 export const actions = {
-  async loadData({ commit }) {
+  // 1. Get list from server
+  // 2. Store data
+  // 3. Remove objects with name as null or "" and sort by name
+  // 4. Group data by listId
+  async nuxtServerInit({ commit }) {
     try {
       const tempData = await this.$axios.get("api/hiring.json");
       commit("SET_DATA", tempData);
@@ -20,9 +24,11 @@ export const actions = {
 };
 
 export const mutations = {
+  // Save data to the apps state
   SET_DATA(state, temp) {
     state.data = temp.data;
   },
+  // Remove if name is null or "" then sort by name
   CLEAN_DATA(state) {
     const filtered = state.data
       .filter(item => {
@@ -39,6 +45,7 @@ export const mutations = {
       });
     state.data = filtered;
   },
+  // Make groups based on listId
   GROUP_DATA(state) {
     state.groupOne = state.data.filter(item => item.listId === 1);
     state.groupTwo = state.data.filter(item => item.listId === 2);
@@ -47,6 +54,7 @@ export const mutations = {
   }
 };
 
+// For accessing data in components
 export const getters = {
   getGroupOne(state) {
     return state.groupOne;

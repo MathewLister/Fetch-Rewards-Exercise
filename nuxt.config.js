@@ -1,5 +1,5 @@
 export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
+  // Enable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: true,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -17,7 +17,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: "~/plugins/vue-good-table", ssr: false }],
+  plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -30,7 +30,7 @@ export default {
   axios: {
     proxy: true // Can be also an object with default options
   },
-
+  // CORS
   proxy: {
     "/api/": {
       target: "https://fetch-hiring.s3.amazonaws.com",
