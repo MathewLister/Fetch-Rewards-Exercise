@@ -1,4 +1,4 @@
-# list-app
+# Fetch-Rewards-Exercise
 
 ## Build Setup
 
