@@ -1,71 +1,65 @@
 <template>
   <div>
-    <h1>Fetch Rewards Exercise</h1>
-    <vue-good-table
-      :columns="columns"
-      :rows="rows"
-      :line-numbers="true"
-      theme="black-rhino"
-    >
-      <div slot="emptystate">
-        <h1>Hmm....Something went wrong please try again</h1>
-      </div>
-    </vue-good-table>
+    <h1 class="title">Fetch Rewards Exercise</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ListID</th>
+          <th>Name</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(row, i) in rows" :key="i">
+          <td>{{ row.listId }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.id }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
-  data() {
-    return {
-      columns: [
-        {
-          label: "ListID",
-          field: "listId",
-          sortable: false
-        },
-        {
-          label: "Name",
-          field: "name",
-          sortable: false
-        },
-        {
-          label: "ID",
-          field: "id",
-          sortable: false
-        }
-      ],
-      rows: []
-    };
+  computed: {
+    ...mapGetters({
+      rows: "getData"
+    })
   },
   methods: {
-    getData() {
-      this.$axios.get("api/hiring.json").then(
-        response => {
-          console.log(response.data);
-          this.rows = response.data;
-          console.log(this.data);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    ...mapActions({
+      fetch: "loadData",
+      clean: "cleanData"
+    }),
+    fetchData() {
+      this.fetch();
+    },
+    cleanData() {
+      this.clean();
     }
   },
   mounted() {
-    this.getData();
+    this.fetchData();
   }
 };
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 .title {
@@ -73,20 +67,8 @@ export default {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 10vw;
   color: #35495e;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
