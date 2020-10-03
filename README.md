@@ -1,8 +1,13 @@
 # Fetch-Rewards-Exercise
+![Demo](Gifs/demo.gif)
+
 
 ## Build Setup
 
 ```bash
+# clone repo
+$ git clone https://github.com/MathewLister/Fetch-Rewards-Exercise.git
+
 # install dependencies
 $ npm install
 
