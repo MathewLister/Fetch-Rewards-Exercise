@@ -9,7 +9,7 @@
 $ git clone https://github.com/MathewLister/Fetch-Rewards-Exercise.git
 
 # install dependencies
-$ npm install
+$ sudo npm install --save
 
 # serve with hot reload at localhost:3000
 $ npm run dev
