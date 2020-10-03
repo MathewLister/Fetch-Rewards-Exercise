@@ -38,8 +38,6 @@ export const mutations = {
         return -1;
       });
     state.data = filtered;
-    console.log("CLEAN");
-    console.log(state.data);
   },
   GROUP_DATA(state) {
     state.groupOne = state.data.filter(item => item.listId === 1);
@@ -50,9 +48,6 @@ export const mutations = {
 };
 
 export const getters = {
-  getData(state) {
-    return state.data;
-  },
   getGroupOne(state) {
     return state.groupOne;
   },
