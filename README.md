@@ -1,6 +1,10 @@
 # Fetch-Rewards-Exercise
 ![Demo](Gifs/demo.gif)
 ### A VueJS with NuxtJS Single page application. 
+#### Main files to note:
+[store/index.js](store/index.js) - Stores application state and main functions for getting data, sorting and filtering
+[pages/index.vue](pages/index.vue) - Main page component that creates the list usings getters from the store
+
 
 ## Build Setup
 ```bash
