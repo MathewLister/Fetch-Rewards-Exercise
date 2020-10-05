@@ -1,5 +1,4 @@
 # Fetch-Rewards-Exercise
-![Demo](Gifs/demo.gif)
 ## A VueJS with NuxtJS Single page application. 
 ### Main files to note:
 
