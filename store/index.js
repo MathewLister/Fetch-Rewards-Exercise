@@ -38,7 +38,10 @@ export const mutations = {
         return true;
       })
       .sort((a, b) => {
-        if (a.name > b.name) {
+        let reg = /\d+/;
+        let regA = a.name.match(reg);
+        let regB = b.name.match(reg);
+        if (parseInt(regA) > parseInt(regB)) {
           return 1;
         }
         return -1;
