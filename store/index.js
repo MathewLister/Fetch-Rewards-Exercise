@@ -38,6 +38,7 @@ export const mutations = {
         return true;
       })
       .sort((a, b) => {
+        // Extract number from the string
         let reg = /\d+/;
         let regA = a.name.match(reg);
         let regB = b.name.match(reg);
